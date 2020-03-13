@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 
-import './app.less';
+import Home from './components/Home';
 
+import './App.less';
 export default class App extends Component {
   render() {
     return (
       <div className="app">
-        App组件
+        <Home/>
       </div>
     )
   }
