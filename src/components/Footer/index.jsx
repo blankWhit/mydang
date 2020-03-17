@@ -3,37 +3,74 @@ import {  NavLink } from 'react-router-dom';
 
 import './index.less';
 
+const tarbarArr = [
+  {
+    img : 'icon-shouye2',
+    text: '首页',
+    path: '/'
+  },
+  {
+    img : 'icon-fenlei',
+    text: '分类',
+    path: '/list',
+  },
+  {
+    img : 'icon-xiexiangbao',
+    text: '值得买',
+    path: '/shop'
+  },
+  {
+    img : 'icon-gouwuche',
+    text: '购物车',
+    path: '/shopping'
+  },
+  {
+    img : 'icon-geren',
+    text: '我的当当',
+    path: '/pre'
+  },
+]
+
 export default class Footer extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      index: 0
+    }
+  }
+
+  itemChange = (i)=>{
+    this.setState({
+      index: i
+    })
+  }
+
   render() {
     return (
       <section className="footer">
-        <ul>
-          <li className="footerNavA" style={{width:"20%"}}>
-            <NavLink exact to="/">
-              <img className="footerNavImg" src="http://img61.ddimg.cn/upload_img/00528/000/icon_03-1.png" alt="首页"/>
-            </NavLink>
-          </li>
-          <li className="footerNavA" style={{width:"20%"}}>
-            <NavLink exact to="/list">
-              <img className="footerNavImg" src="http://img63.ddimg.cn/upload_img/00528/000/feilei-8-2.png" alt="分类"/>
-            </NavLink>
-          </li>
-          <li className="footerNavA" style={{width:"20%"}}>
-            <NavLink exact to="/shop">
-              <img className="footerNavImg" src="http://img63.ddimg.cn/upload_img/00459/h5/ic_buy_normal2-1536892644.png" alt="值得买"/>
-            </NavLink>
-          </li>
-          <li className="footerNavA" style={{width:"20%"}}>
-            <NavLink exact to="/shopping">
-              <img className="footerNavImg" src="http://img63.ddimg.cn/upload_img/00528/000/guowuche-8-2.png" alt="购物车"/>
-            </NavLink>
-          </li>
-          <li className="footerNavA" style={{width:"20%"}}>
-            <NavLink exact to="/pre">
-              <img className="footerNavImg" src="http://img60.ddimg.cn/upload_img/00528/000/wodedangdang---4.png" alt="我的"/>
-            </NavLink>
-          </li>
-        </ul>
+        <div className="footerContent" style={{height:"100%",display:"flex"}}>
+          {
+            tarbarArr.map((v,i)=>(
+              <div 
+                key={i} className={"tabbar-item"+(this.state.index===i?' active':'')} 
+                onClick={()=>this.itemChange(i)} 
+                style={{width:"100%",height:"100%"}}
+              >
+                <NavLink exact to={v.path}>
+                  <div className="footerItem">
+                    <div 
+                      className={"iconfont "+v.img}
+                      style={{width:"100%",height:"100%"}}
+                    />
+                    <div className="iconText">{v.text}</div>
+                  </div>
+                </NavLink>
+              </div>
+            ))
+          }
+          
+        </div>
       </section>
     )
   }

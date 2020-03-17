@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route ,Switch} from 'react-router-dom'
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route ,Switch} from 'react-router-dom';
 
 import Home from './components/Home';
 import List from './components/List';
@@ -13,7 +13,7 @@ export default class routers extends Component {
       <div className="routers">
         <Router>
           <Switch>
-            <Route path="/" exact  component={Home}/>
+            <Route path="/" exact component={Home}/>
             <Route path="/list" component={List}/>
             <Route path="/Shop" component={Shop}/>
             <Route path="/Shopping" component={Shopping}/>
