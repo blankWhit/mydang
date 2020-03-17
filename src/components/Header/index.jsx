@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {  NavLink } from 'react-router-dom';
 import './index.less';
 
 export default class Header extends Component {
@@ -6,15 +7,17 @@ export default class Header extends Component {
     return (
       <header className="header">
         <div className="headerLogo">
-          <a href="##">ACG</a>
+          <NavLink to="/">
+            <span className="logo">ACG</span>
+          </NavLink>
         </div>
         <div className="headerSearch">
           <input type="text" placeholder="五年级课外阅读必读书" autoComplete="off"/>
         </div>
         <div className="headerCate">
-          <a href="##">
-            
-          </a>
+          <NavLink to="/list">
+            <span className="iconfont icon-fenlei"></span>
+          </NavLink>
         </div>
       </header>
     )
